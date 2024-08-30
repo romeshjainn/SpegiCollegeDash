@@ -14,7 +14,14 @@ export const NavBar = ({ data, margin, bgColor }) => {
                 backgroundColor: expandMenu == item?.label ? bgColor : "",
               }}
               className="p-2 rounded-sm text-white my-1 text-[2vh]"
-              onClick={() => setExpandMenu(item?.label)}
+              onClick={() => {
+                if (expandMenu == item?.label) {
+                  setExpandMenu("");
+                } else {
+                  setExpandMenu(item?.label);
+                }
+              }}
+              // onClick={() => setExpandMenu(item?.label)}
             >
               {item?.label}
             </li>
