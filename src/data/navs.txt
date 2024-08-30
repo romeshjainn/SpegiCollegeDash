@@ -1,0 +1,110 @@
+Masters -
+Course Masters
+Document Masters
+Bank Masters
+
+Student Management -
+PreEnquiry / Event
+Enquiry / Registration
+Student Admission
+Student Ledger
+Student Message
+Change Status
+Promotting Class
+Exempt / Settled
+Follow-Up Enquiry
+Student Attendance
+Document Report
+Student ID Card
+Coursewise Ledger
+
+
+Fees Management -
+Fee Head Master
+Fees Structure
+Due Date Master
+Fees Receipt
+Reprint /  Cancellation
+Fees Refund
+Daily Collection
+Fees Receipt Report
+Dues Details
+Hoster Dues Details
+
+Accounts -
+Ledger Group
+Ledger Master
+Contra
+Payment
+Receipt
+Journal Voucher
+Day Book
+Cash / Bank Summary
+Ledger Status
+
+Examination -
+Subject Master
+Course Subject Detail
+Enrollment ID
+Elective Paper Entry
+Regular Exam Entry
+Backlog Exam Form
+Pratical Internal
+Result Entry
+Marksheet Allotment
+Exam Form Report
+Answersheet Master
+
+Library Management -
+Membershup Entry
+Location Master
+Book Master
+Book Issue Entry
+Book Return Entry
+Book Stock
+Charges Setting
+Book Suplier
+Book Purchase
+Books Detail Report
+Lib Reprint Cancellation
+Library Collection
+
+Certificate Details -
+Character Certificate
+Transfer Certificate
+NOC
+Bonafide Certificate
+Statement of Fees
+Course Certificate
+Migration Form
+Digree Form
+Diploma Form
+All Certificate Report
+
+HR & Payroll -
+Assign Leave
+Salary Head Master
+Salary Structure
+Employee Master
+Employee Attendance
+Salary Register
+Leave Session
+Leave Balance
+Staffid Card
+
+Administrations -
+Company Profile
+User Master
+User Activity
+Default Parameter
+Seat & Batch Setting
+Data Filter
+Edit Student Detail
+
+Reports -
+Student Details
+Enquiry Details
+Daily Admission
+
+Help -
+About
