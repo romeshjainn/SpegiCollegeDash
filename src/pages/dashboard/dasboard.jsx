@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Card } from "./comp/card";
 
-const Dasboard = () => {
+const Dashboard = () => {
   const [cardData, setCardData] = useState([
     {
       label: "Enquiries",
@@ -9,7 +9,7 @@ const Dasboard = () => {
       bgColor: "red",
     },
     {
-      label: "Admission",
+      label: "Admissions",
       value: "12",
       bgColor: "blue",
     },
@@ -43,4 +43,4 @@ const Dasboard = () => {
   );
 };
 
-export default Dasboard;
+export default Dashboard;
