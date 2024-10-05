@@ -8,6 +8,7 @@ import Layout from "../pages/layout/layout";
 import Dasboard from "../pages/dashboard/dasboard";
 import Login from "../pages/auth/login";
 import StudentDashboard from "@/pages/student-dashboard/studentDashboard";
+import PayFees from "@/pages/student-dashboard/pay-fees/payFees";
 
 const Routing = () => {
   const accountType = localStorage.getItem("type");
@@ -23,6 +24,9 @@ const Routing = () => {
         ) : (
           <Route path="/dashboard" element={<StudentDashboard />} />
         )}
+        <Route path="/add-student" element={<PayFees />} />
+        <Route path="/pay-fees" element={<PayFees />} />
+        <Route path="/help" element={<PayFees />} />
       </Routes>
     </Router>
   );

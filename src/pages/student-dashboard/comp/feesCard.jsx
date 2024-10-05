@@ -1,6 +1,6 @@
 export const FeesCard = ({ title, fees, subTitle, date, isDue }) => {
   return (
-    <div className="flex items-center gap-2 p-1 px-2 border-[1px] border-gray-600 rounded-md">
+    <div className="flex items-center gap-2 p-1 px-2  bg-white border-[1px] border-gray-600 rounded-md">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -14,7 +14,12 @@ export const FeesCard = ({ title, fees, subTitle, date, isDue }) => {
 
       <div className="w-full text-[2.5vh]">
         <h3 className="flex items-center">
-          {title} {isDue && <span className="ml-1 bg-red-600 text-white px-2 rounded-xl text-[1.9vh]">Late</span>}
+          {title}{" "}
+          {isDue && (
+            <span className="ml-1 bg-red-600 text-white px-2 rounded-xl text-[1.9vh]">
+              Late
+            </span>
+          )}
         </h3>
         <p style={{ color: isDue ? "red" : "" }}>
           {fees} {isDue && <span> + 100 </span>}

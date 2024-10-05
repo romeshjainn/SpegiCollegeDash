@@ -4,6 +4,9 @@ import { HeaderCard } from "./comp/headerCard";
 import { Card } from "./comp/card";
 import { HomewordCard } from "./comp/homeworkCard";
 import { FeesCard } from "./comp/feesCard";
+import { QuickButtons } from "./comp/quickButtons";
+import { AttendanceIcon } from "./comp/icons-svg/attendanceIcons";
+import { Link } from "react-router-dom";
 
 const StudentDashboard = () => {
   const [cardData, setCardData] = useState([
@@ -84,11 +87,16 @@ const StudentDashboard = () => {
     },
   ]);
 
+  useEffect(() => {
+    toast.dismiss();
+    toast.success("Welcome!");
+  }, []);
+
   return (
-    <div className="p-6 px-32">
+    <div className="p-6 px-32 bg-[#eaeaea]">
       <HeaderCard />
 
-      <div className="mt-2 flex gap-2">
+      <div className="mt-4 flex gap-4">
         {cardData?.map((item, index) => {
           return (
             <Card
@@ -104,47 +112,109 @@ const StudentDashboard = () => {
         })}
       </div>
 
-      <main className="flex gap-2 mt-3">
-        <section className="max-h-[500px] border-2 border-black w-1/2 p-3 font-semibold bg-white rounded-md">
-          <div className="flex justify-between border-b-[1px] border-black">
-            <p className="pb-1 w-full">Fees</p>
-            <button className="text-nowrap bg-blue-600 text-white text-sm py-1 cursor-pointer px-2 mb-2 rounded-md">
-              Pay Fees
-            </button>
-          </div>
-          <div className="flex flex-col gap-2 mt-3 rounded-md ">
-            {feesCardData.map((item, index) => {
-              return (
-                <FeesCard
-                  key={index}
-                  title={item.title}
-                  fees={item.fees}
-                  subTitle={item.subTitle}
-                  date={item.date}
-                  isDue={item.isDue}
-                />
-              );
-            })}
-          </div>
-        </section>
-        <section className="max-h-[500px] border-2 border-black w-1/2 p-3 font-semibold overflow-y-scroll bg-white rounded-md">
-          <p className="pb-1 border-b-[1px] border-black w-full">Home Works</p>
-          <div className="mt-3 bg-white rounded-md flex flex-col gap-2 h-full ">
-            {homeworkCardData.map((item, index) => {
-              return (
-                <>
-                  <HomewordCard
-                    imageUrl={item.imageUrl}
-                    subject={item.subject}
+      <main>
+        <div className="flex gap-4 mt-5">
+          <section className="max-h-[500px] w-1/2 p-3 font-semibold bg-white rounded-md">
+            <div className="flex justify-between border-b-[1px] border-black">
+              <p className="pb-1 w-full">Fees</p>
+              <Link
+                to={"/pay-fees"}
+                className="text-nowrap bg-blue-600 text-white text-sm py-1 cursor-pointer px-2 mb-2 rounded-md"
+              >
+                Pay Fees
+              </Link>
+            </div>
+            <div className="flex flex-col gap-2 mt-3 rounded-md ">
+              {feesCardData.map((item, index) => {
+                return (
+                  <FeesCard
+                    key={index}
                     title={item.title}
-                    subtitle={item.subtitle}
-                    dueDate={item.dueDate}
+                    fees={item.fees}
+                    subTitle={item.subTitle}
+                    date={item.date}
+                    isDue={item.isDue}
                   />
-                </>
-              );
-            })}
-          </div>
-        </section>
+                );
+              })}
+            </div>
+          </section>
+          <section className="max-h-[500px] w-1/2 p-3 font-semibold overflow-y-scroll bg-white rounded-md">
+            <p className="pb-1 border-b-[1px] border-black w-full">
+              Home Works
+            </p>
+            <div className="mt-3 bg-white rounded-md flex flex-col gap-2 h-full ">
+              {homeworkCardData.map((item, index) => {
+                return (
+                  <>
+                    <HomewordCard
+                      imageUrl={item.imageUrl}
+                      subject={item.subject}
+                      title={item.title}
+                      subtitle={item.subtitle}
+                      dueDate={item.dueDate}
+                    />
+                  </>
+                );
+              })}
+            </div>
+          </section>
+        </div>
+        <div className="flex gap-4 mt-5">
+          <section className="w-1/2 bg-[#fff] p-3 min-h-[500px] font-semibold rounded-md">
+            <p className="pb-1 border-b-[1px] border-black w-full">
+              Notifications
+            </p>
+            <div>
+              <div>
+                <img src="" alt="" />
+                <div>
+                  <h3></h3>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section className="w-1/2 bg-[#fff] flex flex-col gap-4 p-3 min-h-[500px] font-semibold rounded-md">
+            <div className="h-1/3 p-3 bg-[#eaeaea]  rounded-t-md">
+              <p className="pb-1 border-b-[1px] border-black w-full">
+                Quick Links
+              </p>
+              <div className="p-3 flex justify-evenly gap-3">
+                <QuickButtons
+                  jsxIcons={<AttendanceIcon />}
+                  color={"red"}
+                  label={"Attendance"}
+                  fontColor={"white"}
+                />
+                <QuickButtons
+                  jsxIcons={<AttendanceIcon />}
+                  color={"blue"}
+                  label={"Attendance"}
+                  fontColor={"white"}
+                />
+                <QuickButtons
+                  jsxIcons={<AttendanceIcon />}
+                  color={"purple"}
+                  label={"Attendance"}
+                  fontColor={"white"}
+                />
+                <QuickButtons
+                  jsxIcons={<AttendanceIcon />}
+                  color={"red"}
+                  label={"Attendance"}
+                  fontColor={"white"}
+                />
+              </div>
+            </div>
+            <div className="h-full p-3 bg-[#eaeaea] rounded-b-md">
+              {" "}
+              <p className="pb-1 border-b-[1px] border-black w-full">
+                Notifications
+              </p>
+            </div>
+          </section>
+        </div>
       </main>
     </div>
   );

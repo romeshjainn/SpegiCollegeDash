@@ -1,38 +1,7 @@
-import { useState } from "react";
-import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import LoginImage from "../../assets/login-image.webp";
 
 const Login = () => {
-  const [inputs, setInputs] = useState({
-    mobileNumber: "",
-    otp: "",
-  });
-
-  const handleInput = (e) => {
-    const { name, value } = e.target;
-    const sanitizedValue = value.replace(/\D/g, "");
-
-    if (name === "mobileNumber") {
-      if (sanitizedValue.length <= 10) {
-        setInputs((prev) => ({ ...prev, [name]: sanitizedValue }));
-      }
-    } else if (sanitizedValue.length <= 6) {
-      setInputs((prev) => ({ ...prev, [name]: value }));
-    }
-  };
-
-  const handleRequestOtp = () => {
-    toast.dismiss();
-    if (inputs.mobileNumber.length === 10) {
-      toast.loading("Requesting OTP");
-      setTimeout(() => {
-        toast.dismiss();
-        toast.success("OTP requested successfully");
-      }, 2000);
-    } else {
-      toast.error("Mobile number must be 10 digits");
-    }
-  };
   const navigate = useNavigate();
   return (
     <div>
@@ -57,24 +26,12 @@ const Login = () => {
                   <input
                     name="mobileNumber"
                     type="tel"
-                    value={inputs.mobileNumber}
                     required
                     className="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-lg outline-blue-600"
                     placeholder="Enter your number"
-                    onChange={handleInput}
-                    maxLength={10} // Restrict input to 10 characters
+                    maxLength={10}
                   />
-                  <div
-                    onClick={handleRequestOtp}
-                    // className="cursor-pointer min-w-[35%] text-center text-nowrap font-medium text-sm text-white border border-gray-300 px-2 py-3 rounded-lg outline-blue-600 bg-[#1d4ed8]"
-                    className="cursor-pointer min-w-[35%] text-center text-nowrap font-medium text-sm text-white border border-gray-300 px-2 py-3 rounded-lg outline-blue-600"
-                    style={{
-                      backgroundColor:
-                        inputs.mobileNumber.length !== 10
-                          ? "#6b7280"
-                          : "#1d4ed8",
-                    }}
-                  >
+                  <div className="cursor-pointer min-w-[35%] text-center text-nowrap font-medium text-sm text-white border border-gray-300 px-2 py-3 rounded-lg outline-blue-600">
                     Request OTP
                   </div>
                 </div>
@@ -91,26 +48,7 @@ const Login = () => {
                     required
                     className="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-lg outline-blue-600"
                     placeholder="Enter OTP"
-                    value={inputs.otp}
-                    onChange={handleInput}
                   />
-                </div>
-              </div>
-
-              <div className="flex flex-wrap items-center justify-between gap-4">
-                <div className="flex items-center">
-                  <input
-                    id="remember-me"
-                    name="remember-me"
-                    type="checkbox"
-                    className="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                  />
-                  <label
-                    htmlFor="remember-me"
-                    className="ml-3 block text-sm text-gray-800"
-                  >
-                    Remember me
-                  </label>
                 </div>
               </div>
 
@@ -118,28 +56,7 @@ const Login = () => {
                 <button
                   type="button"
                   className="w-full shadow-xl py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
-                  style={{
-                    backgroundColor:
-                      inputs.otp.length !== 6 ? "#6b7280" : "#1d4ed8",
-                  }}
-                  onClick={() => {
-                    toast.dismiss();
-                    if (inputs.otp.length == 6) {
-                      toast.loading("Signing in");
-                      if (inputs.otp == "123456") {
-                        localStorage.setItem("type", "student");
-                      } else {
-                        localStorage.setItem("type", "student");
-                      }
-                      setTimeout(() => {
-                        toast.dismiss();
-
-                        navigate("/dashboard");
-                      }, 2000);
-                    } else {
-                      toast.error("Entered otp is wrong");
-                    }
-                  }}
+                  onClick={() => navigate("/home")}
                 >
                   Log in
                 </button>
@@ -148,7 +65,8 @@ const Login = () => {
           </div>
           <div className="lg:h-[400px] md:h-[300px] max-md:mt-8">
             <img
-              src="https://readymadeui.com/login-image.webp"
+              // src="https://readymadeui.com/login-image.webp"
+              src={LoginImage}
               className="w-full h-full max-md:w-4/5 mx-auto block object-cover"
               alt="Login"
             />

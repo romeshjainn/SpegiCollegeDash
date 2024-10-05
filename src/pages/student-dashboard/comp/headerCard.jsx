@@ -1,7 +1,7 @@
 export const HeaderCard = () => {
   return (
     <header className="rounded-2xl w-full">
-      <div className="border-2 flex items-center gap-2 border-black bg-[#202c4b] rounded-xl">
+      <div className=" flex items-center gap-2 bg-[#202c4b] rounded-xl">
         <div className="h-[150px] aspect-square p-1 ">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN29ucAN8zBzmWzb4S49ZxX0YTcTa7tyhedA&s"
